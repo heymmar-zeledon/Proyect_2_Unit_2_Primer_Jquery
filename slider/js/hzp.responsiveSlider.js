@@ -6,7 +6,8 @@
             sliderHeight: 600,
             auto: true,
             _sliderDelay: 3000,
-            easing: "linear",          
+            easing: "linear",
+            rolloverMode: true,          
         },
         _create: function(){
             var _slider = this;
@@ -49,14 +50,17 @@
             .width(_slider.options.sliderWidth)
             .height(_slider.options.sliderHeight);
 
-            _slider.setTimer();
+            _slider._setTimer();
+
+            _slider._setControlOver();
         },
         //Funcion que crea la botonera
         _buildButtonBar: function(){
             var _slider = this;    
         },
 
-        setTimer: function(){
+        //Funcion que ejecuta el control de tiempo
+        _setTimer: function(){
             var _slider = this;
             if(_slider.options.auto){
                 _slider.timerInterval = setInterval(function(){
@@ -79,5 +83,21 @@
                 }, _slider.options._sliderDelay);
             }
         },
+
+        //controla el rollover sobre todo e widget
+        _setControlOver: function(){
+            var _slider = this;
+            _slider.sliderContainer.mouseenter(function(){
+                if(_slider.options.rolloverMode){
+                    clearInterval(_slider.timerInterval);
+                }
+            });
+            _slider.sliderContainer.mouseleave(function(){
+                if(_slider.options.rolloverMode){
+                    _slider._setTimer();
+                }
+            });
+        },
+
     });
 } (jQuery));
