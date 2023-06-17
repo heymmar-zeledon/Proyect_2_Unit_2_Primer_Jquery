@@ -5,7 +5,8 @@ jQuery(document).ready(function($){
         auto: true,
         sliderDelay: 4000,
         easing: "easeInOutCubic",
-        rolloverMode: true,    
+        rolloverMode: true,
+        buttonBar: true,    
     });
 
 });

@@ -7,7 +7,8 @@
             auto: true,
             _sliderDelay: 3000,
             easing: "linear",
-            rolloverMode: true,          
+            rolloverMode: true,  
+            buttonBar: true,        
         },
         _create: function(){
             var _slider = this;
@@ -56,7 +57,19 @@
         },
         //Funcion que crea la botonera
         _buildButtonBar: function(){
-            var _slider = this;    
+            var _slider = this;   
+            if(_slider.options.buttonBar){
+                var _botonera = $("<div class='responsiveSlider_buttonBar'><ul></ul></div>");
+                _slider.buttonBar = _botonera;
+                var _ul = _botonera.find("ul");
+                var _li;
+                _slider.slides.each(function(index){
+                    _li = $("<i></i>");
+                    _ul.append(_li);
+                });
+                _slider.sliderContainer.append(_botonera);
+            }
+            
         },
 
         //Funcion que ejecuta el control de tiempo
