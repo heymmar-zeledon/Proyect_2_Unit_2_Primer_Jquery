@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/*CSS Document*/
+
+.responsiveSlider_sliderContainer{
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.responsiveSlider_Ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+.responsiveSlider_Li{
+    float: left;
+    position: relative;
+    list-style: none;
+    overflow: hidden; 
+}
