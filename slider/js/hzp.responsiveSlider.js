@@ -37,6 +37,14 @@ $("#ul2").responsiveSlider({
             _slider._build();
 
             _slider._buildButtonBar();
+
+            $(window).resize(function(){
+                clearInterval(_slider.loop);
+                _slider.loop = setInterval(function(){
+                    clearInterval(_slider.loop);
+                    this.location.reload(false); //recomendable en ciertos casos unicamente
+                }, 30);
+            });
         },
         //Funcion que se usa para almacenar el tamaño de las diapositivas,
         //Recuperando el tamaño de la primera
