@@ -14,7 +14,8 @@ jQuery(document).ready(function($){
         sliderDelay: 3000,
         easing: "easeInOutCubic",
         rolloverMode: true,
-        buttonBar: false,    
+        buttonBar: true,
+        buttonBarClass: "botoneraSec",    
     });
 
 });

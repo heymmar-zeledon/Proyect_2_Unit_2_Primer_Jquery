@@ -8,10 +8,10 @@ parametros y ejemplo
 $("#ul2").responsiveSlider({
         auto: true, //true o false// controla si tiene animacion automatica
         sliderDelay: 3000, // tiempo en milisegundo que la animacion debe esperar en cada diapositiva
-        easing: "easeInOutCubic", // Tipo de animacion a setear 
-        rolloverMode: true, //parametro po defecto para crear una botonera sobre el widget
+        easing: "easeInOutCubic", // Tipo de aceleracion JqueryUI; por defecto es lineal 
+        rolloverMode: true, //parametro por defecto para activar animacion
         buttonBar: false,    // para crear botones que permitan al usuario ver una diapositiva gusto propio
-        buttonBarClass: "miBotonera"; // Habilita la botonera de opciones de diapositiva
+        buttonBarClass: "miBotonera"; // Clase que permite personalizacion de la botonera; por defecto no lleva
     }); 
 
 */

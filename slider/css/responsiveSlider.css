@@ -29,24 +29,19 @@
 }
 
 .responsiveSlider_buttonBar ul{
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0);
     padding: 3px 12px;
     margin: 0 auto;
     display: block;
     text-align: center;
     height: 16px;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
 }
 
 .responsiveSlider_buttonBar ul li{
     width: 16px;
     height: 16px;
     display: inline-block;
-    background-color: #ffffff;
+    background-color: #fcddae;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -56,14 +51,10 @@
 }
 
 .responsiveSlider_buttonBar ul li.active{
-    background-color: rgb(35, 51, 141);
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    background-color: rgb(61, 61, 61);
 }
 
 .responsiveSlider_buttonBar ul li:hover{
-    background-color: #666;;
+    background-color: #666;
+    
 }

@@ -141,7 +141,25 @@ estilos para los contenidos del slider lateral
 }
 
 
+/* estilos de la botonera lateral */
 
+.botoneraSec{
+    top: 5px;
+}
+
+.botoneraSec ul{
+    height: 14px;
+}
+
+.botoneraSec ul li{
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+}
 
 @media (max-width: 480px) {
     .colIzda {
