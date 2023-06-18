@@ -1,3 +1,21 @@
+/*sample of use 
+
+slider con opciones de control sobre si lleva una botonera, sobre si se activa o desactiva con el rollover,
+que permite añadir html en su interior y que funciona basado en diseño responsivo
+
+parametros y ejemplo 
+
+$("#ul2").responsiveSlider({
+        auto: true, //true o false// controla si tiene animacion automatica
+        sliderDelay: 3000, // tiempo en milisegundo que la animacion debe esperar en cada diapositiva
+        easing: "easeInOutCubic", // Tipo de animacion a setear 
+        rolloverMode: true, //parametro po defecto para crear una botonera sobre el widget
+        buttonBar: false,    // para crear botones que permitan al usuario ver una diapositiva gusto propio
+        buttonBarClass: "miBotonera"; // Habilita la botonera de opciones de diapositiva
+    }); 
+
+*/
+
 (function($){
     $.widget("custom.responsiveSlider", {
         widgetEventPrefix:"hzp",
