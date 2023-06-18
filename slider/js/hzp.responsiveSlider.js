@@ -23,7 +23,7 @@ $("#ul2").responsiveSlider({
             sliderWidth: 1000,
             sliderHeight: 600,
             auto: true,
-            sliderDelay: 3000,
+            _sliderDelay: 3000,
             easing: "linear",
             rolloverMode: true,  
             buttonBar: true,
@@ -35,10 +35,12 @@ $("#ul2").responsiveSlider({
             this.element.css("padding", "0");
             _slider.contenedor = this.element;
             _slider.parent = this.contenedor.parent();
+            setTimeout(function(){
+                _slider._build();
 
-            _slider._build();
-
-            _slider._buildButtonBar();
+                _slider._buildButtonBar();
+    
+            }, 40);
 
             $(window).resize(function(){
                 clearInterval(_slider.loop);
@@ -51,16 +53,16 @@ $("#ul2").responsiveSlider({
                     _slider.parent.append(this.oldElement);
                     setTimeout(function(){
                         _slider.oldElement.responsiveSlider({
-                            sliderDelay:_slider.options.sliderDelay,
+                            sliderDelay:_slider.options._sliderDelay,
                             easing:_slider.options.easing,
                             auto:_slider.options.auto,
                             buttonBar:_slider.options.buttonBar,
                             buttonBarClass:_slider.options.buttonBarClass,
                         });
-                    }, 10);
-                    //this.location.reload(false); //recomendable en ciertos casos unicamente
-                    _slider.contenedor.responsiveSlider("destroy");
-                }, 10);
+                    }, 30);
+                    _slider.contenedor.responsiveSlider("_destroy");
+                }, 30);
+                this.location.reload(false); //recomendable en ciertos casos unicamente
             });
         },
         //Funcion que se usa para almacenar el tamaño de las diapositivas,
@@ -188,7 +190,7 @@ $("#ul2").responsiveSlider({
 
         _destroy: function(){
             this.parent.append(this.oldElement);
-            this._sliderContainer.remove();
+            this.sliderContainer.remove();
         },
     });
 
