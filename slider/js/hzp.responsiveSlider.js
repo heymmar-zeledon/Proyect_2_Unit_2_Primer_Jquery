@@ -8,7 +8,8 @@
             _sliderDelay: 3000,
             easing: "linear",
             rolloverMode: true,  
-            buttonBar: true,        
+            buttonBar: true,
+            buttonBarClass:"",    
         },
         _create: function(){
             var _slider = this;
@@ -61,15 +62,31 @@
             if(_slider.options.buttonBar){
                 var _botonera = $("<div class='responsiveSlider_buttonBar'><ul></ul></div>");
                 _slider.buttonBar = _botonera;
+                _botonera.addClass(_slider.options.buttonBarClass);
                 var _ul = _botonera.find("ul");
                 var _li;
                 _slider.slides.each(function(index){
-                    _li = $("<i></i>");
+                    _li = $("<li data-ref='"+ index +"'></li>");
                     _ul.append(_li);
+
+                    _li.click(function(){
+                        var _indice = $(this).data("ref");
+                        _slider.indice = _indice;
+                        _slider.marginLeft= -_indice * _slider.options.sliderWidth;
+                        _slider.contenedor.stop().animate(
+                            {marginLeft: _slider.marginLeft + "px"},
+                            {
+                                duration: 1000,
+                                specialEasing: {marginLeft: _slider.options.easing},
+                                complete: function(){
+                                    
+                                }
+                            }
+                        );
+                    });
                 });
                 _slider.sliderContainer.append(_botonera);
             }
-            
         },
 
         //Funcion que ejecuta el control de tiempo
