@@ -9,4 +9,12 @@ jQuery(document).ready(function($){
         buttonBar: true,    
     });
 
+    $("#ul2").responsiveSlider({
+        auto: true,
+        sliderDelay: 3000,
+        easing: "easeInOutCubic",
+        rolloverMode: true,
+        buttonBar: false,    
+    });
+
 });

@@ -23,7 +23,7 @@
 
 .responsiveSlider_buttonBar{
     position: absolute;
-    bottom: 22px;
+    bottom: 14px;
     width: 100%;
     z-index:150;
 }
@@ -35,7 +35,11 @@
     display: block;
     text-align: center;
     height: 16px;
-
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .responsiveSlider_buttonBar ul li{
@@ -52,7 +56,12 @@
 }
 
 .responsiveSlider_buttonBar ul li.active{
-    background-color: red;
+    background-color: rgb(35, 51, 141);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .responsiveSlider_buttonBar ul li:hover{
