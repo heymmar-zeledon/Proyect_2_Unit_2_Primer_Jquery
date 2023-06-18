@@ -23,7 +23,7 @@ $("#ul2").responsiveSlider({
             sliderWidth: 1000,
             sliderHeight: 600,
             auto: true,
-            _sliderDelay: 3000,
+            sliderDelay: 3000,
             easing: "linear",
             rolloverMode: true,  
             buttonBar: true,
@@ -31,8 +31,10 @@ $("#ul2").responsiveSlider({
         },
         _create: function(){
             var _slider = this;
+            this.oldElement = this.element.clone();
             this.element.css("padding", "0");
             _slider.contenedor = this.element;
+            _slider.parent = this.contenedor.parent();
 
             _slider._build();
 
@@ -40,10 +42,25 @@ $("#ul2").responsiveSlider({
 
             $(window).resize(function(){
                 clearInterval(_slider.loop);
+
                 _slider.loop = setInterval(function(){
+
+                    $(window).unbind("resize");
                     clearInterval(_slider.loop);
-                    this.location.reload(false); //recomendable en ciertos casos unicamente
-                }, 30);
+
+                    _slider.parent.append(this.oldElement);
+                    setTimeout(function(){
+                        _slider.oldElement.responsiveSlider({
+                            sliderDelay:_slider.options.sliderDelay,
+                            easing:_slider.options.easing,
+                            auto:_slider.options.auto,
+                            buttonBar:_slider.options.buttonBar,
+                            buttonBarClass:_slider.options.buttonBarClass,
+                        });
+                    }, 10);
+                    //this.location.reload(false); //recomendable en ciertos casos unicamente
+                    _slider.contenedor.responsiveSlider("destroy");
+                }, 10);
             });
         },
         //Funcion que se usa para almacenar el tamaño de las diapositivas,
@@ -168,5 +185,11 @@ $("#ul2").responsiveSlider({
                 _slider.buttonBar.find("li[data-ref='"+ _slider.indice +"']").addClass("active");
             }
         },
+
+        _destroy: function(){
+            this.parent.append(this.oldElement);
+            this._sliderContainer.remove();
+        },
     });
+
 } (jQuery));
